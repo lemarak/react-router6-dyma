@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+
+import Footer from "./components/Footer/Footer";
+import Header from "./components/Header/Header";
+
+import styles from "./App.module.scss";
+import Homepage from "./pages/Homepage/Homepage";
+import Profile from "./pages/Profile/Profile";
+import { Outlet } from "react-router-dom";
+// import seedRecipes from "./data/seed";
+
+// seedRecipes();
 
 function App() {
+  const [page, setPage] = useState("homepage");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={`d-flex flex-column ${styles.appContainer}`}>
+      <Header />
+      <div className="flex-fill container d-flex flex-column p-20">
+        <Outlet />
+      </div>
+      <Footer />
     </div>
   );
 }
