@@ -34,3 +34,18 @@ input {
 ::placeholder {
   font-family: var(--font-family);
 }
+
+a {
+  color: var(--text-color);
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.active {
+  font-weight: 500;
+  color: var(--primary);
+}
+.link-active {
+  font-weight: 500;
+  color: var(--primary);
+}

@@ -1,4 +1,4 @@
-@use '../../assets/styles/mixins' as mixin;
+@use "../../assets/styles/mixins" as mixin;
 
 .header {
   position: relative;
@@ -29,4 +29,8 @@
   @include mixin.xs {
     display: block;
   }
+}
+
+.title a {
+  color: var(--red-1) !important;
 }

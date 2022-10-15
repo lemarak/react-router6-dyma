@@ -1,24 +1,28 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import styles from "./Header.module.scss";
 
 const Header = ({ setPage }) => {
   return (
     <header className={`${styles.header} d-flex flex-row align-items-center`}>
-      <div className="flex-fill">
+      <div className={`flex-fill ${styles.title}`}>
         <Link to="/">
           <strong>React-router</strong>
         </Link>
       </div>
       <ul className={styles.headerList}>
-        <Link className="mr-15" to="/">
+        <NavLink
+          end
+          className={({ isActive }) => (isActive ? "link-active" : "")}
+          to="/"
+        >
           Homepage
-        </Link>
-        <Link className="mr-15" to="/profile">
+        </NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? "link-active" : "")}
+          to="/profile"
+        >
           Profile
-        </Link>
-        <Link className="mr-15" to="/pouet">
-          ???
-        </Link>
+        </NavLink>
       </ul>
     </header>
   );
