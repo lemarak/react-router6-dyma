@@ -1,16 +1,21 @@
-import { useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, ScrollRestoration, useLocation } from "react-router-dom";
 
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 
 import styles from "./App.module.scss";
+import { useEffect } from "react";
 
 // import seedRecipes from "./data/seed";
 
 // seedRecipes();
 
 function App() {
+  // const location = useLocation();
+  // useEffect(() => {
+  //   console.log(location);
+  // }, [location]);
+
   return (
     <div className={`d-flex flex-column ${styles.appContainer}`}>
       <Header />
@@ -18,6 +23,7 @@ function App() {
         <Outlet />
       </div>
       <Footer />
+      <ScrollRestoration />
     </div>
   );
 }

@@ -4,6 +4,7 @@ const Profile = () => {
   const { id, name } = useParams();
   const [queryParams, setQueryParams] = useSearchParams();
   const age = queryParams.get("age");
+
   return (
     <>
       <div className="d-flex flex-row align-items-center mb-20">
