@@ -14,12 +14,16 @@ export const router = createBrowserRouter([
     children: [
       { index: true, element: <Homepage /> },
       {
-        path: "/profile",
+        path: "/profile/:id/:name",
         element: <Profile />,
         children: [
           { index: true, element: <ProfileOverview /> },
           { path: "data", element: <ProfileData /> }, // chemin relatif
         ],
+      },
+      {
+        path: "/profile/*",
+        element: <Profile />,
       },
     ],
   },

@@ -2,6 +2,10 @@ import { Link, NavLink } from "react-router-dom";
 import styles from "./Header.module.scss";
 
 const Header = ({ setPage }) => {
+  const id = "123";
+  const name = "Charlie";
+  const age = "2";
+
   return (
     <header className={`${styles.header} d-flex flex-row align-items-center`}>
       <div className={`flex-fill ${styles.title}`}>
@@ -19,7 +23,7 @@ const Header = ({ setPage }) => {
         </NavLink>
         <NavLink
           className={({ isActive }) => (isActive ? "link-active" : "")}
-          to="/profile"
+          to={`/profile/${id}/${name}?age=${age}`}
         >
           Profile
         </NavLink>
