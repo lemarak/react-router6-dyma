@@ -1,4 +1,9 @@
-import { Outlet, ScrollRestoration, useLocation } from "react-router-dom";
+import {
+  Outlet,
+  ScrollRestoration,
+  useLocation,
+  useNavigation,
+} from "react-router-dom";
 
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
@@ -12,13 +17,20 @@ import { useEffect } from "react";
 
 function App() {
   // const location = useLocation();
-  // useEffect(() => {
-  //   console.log(location);
-  // }, [location]);
+  const navigation = useNavigation();
+  useEffect(() => {
+    console.log(navigation);
+  }, [navigation]);
 
   return (
     <div className={`d-flex flex-column ${styles.appContainer}`}>
       <Header />
+      {navigation.state === "loading" && (
+        <h2>
+          Chargement...{" "}
+          {navigation.location.pathname === "/" && <strong>Homepage</strong>}
+        </h2>
+      )}
       <div className="flex-fill container d-flex flex-column p-20">
         <Outlet />
       </div>
