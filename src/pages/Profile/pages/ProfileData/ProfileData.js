@@ -1,9 +1,11 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useOutletContext } from "react-router-dom";
 
 const ProfileData = () => {
+  const { user } = useOutletContext();
+
   return (
     <>
-      <h3>ProfileData</h3>
+      <h3>ProfileData de {user.name}</h3>
       <ul>
         <li>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro aut

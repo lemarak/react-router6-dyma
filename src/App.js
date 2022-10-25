@@ -1,6 +1,7 @@
 import {
   Outlet,
   ScrollRestoration,
+  useLoaderData,
   useLocation,
   useNavigation,
 } from "react-router-dom";
@@ -18,6 +19,10 @@ import { useEffect } from "react";
 function App() {
   // const location = useLocation();
   const navigation = useNavigation();
+  const user = useLoaderData();
+
+  console.log("user", user);
+
   useEffect(() => {
     console.log(navigation);
   }, [navigation]);
@@ -32,7 +37,7 @@ function App() {
         </h2>
       )}
       <div className="flex-fill container d-flex flex-column p-20">
-        <Outlet />
+        <Outlet context={{ user }} />
       </div>
       <Footer />
       <ScrollRestoration />
