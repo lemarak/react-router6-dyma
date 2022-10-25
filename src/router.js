@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "./App";
+import { loaderRecipes } from "./loaders/homepageLoader";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import Homepage from "./pages/Homepage/Homepage";
 import ProfileData from "./pages/Profile/pages/ProfileData/ProfileData";
@@ -12,7 +13,11 @@ export const router = createBrowserRouter([
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
-      { index: true, element: <Homepage /> },
+      {
+        index: true,
+        loader: loaderRecipes,
+        element: <Homepage />,
+      },
       {
         path: "/profile/:id/:name",
         element: <Profile />,
