@@ -1,14 +1,13 @@
 import axios from "axios";
 
-export const loaderRecipes = async ({ params, request }) => {
+export const homepageLoader = async ({ params, request }) => {
+  const res = await axios.get("https://restapi.fr/api/recipes");
   const url = new URL(request.url);
-  console.log(url.searchParams.get("name"));
-  const response = await axios.get("https://restapi.fr/api/recipes");
-  if (response.status === 200) {
+  //   console.log(url.searchParams.get("name"));
+  if (res.status === 200) {
+    const recipes = res.data;
     return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(response.data);
-      }, 2000);
+      setTimeout(() => resolve({ recipes }), 2000);
     });
   } else {
     throw new Error("something went wrong");

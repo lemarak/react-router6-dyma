@@ -1,9 +1,6 @@
-import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
-
 const Homepage = () => {
-  const recipes = useLoaderData();
-
+  const { recipes } = useLoaderData();
   return (
     <>
       <h2>Homepage</h2>
@@ -11,5 +8,4 @@ const Homepage = () => {
     </>
   );
 };
-
 export default Homepage;
